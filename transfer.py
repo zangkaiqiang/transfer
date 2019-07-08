@@ -3,6 +3,15 @@ from tensorflow import keras
 
 from prepare import train_generator
 from model import IMG_SHAPE
+import argparse
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-g", "--gpus", type=int, default=1,
+                help="# of GPUs to use for training")
+args = vars(ap.parse_args())
+
+# grab the number of GPUs and store it in a conveience variable
+G = args["gpus"]
 
 base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
                                                include_top=False,
@@ -13,6 +22,8 @@ model = tf.keras.Sequential([
     keras.layers.GlobalAveragePooling2D(),
     keras.layers.Dense(1, activation='sigmoid')
 ])
+if G > 1:
+    model = keras.utils.multi_gpu_model(model, gpus=G)
 
 model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=0.0001),
               loss='binary_crossentropy',
