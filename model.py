@@ -32,5 +32,3 @@ model.add(keras.layers.Flatten())
 model.add(keras.layers.Dense(512, activation="relu"))
 model.add(keras.layers.Dropout(0.5))
 model.add(keras.layers.Dense(1, activation="sigmoid"))
-model.summary()
-
