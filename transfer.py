@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow import keras
 
-from prepare import train_generator
+from prepare import train_generator, val_generator
 from model import IMG_SHAPE
 import argparse
 
@@ -44,11 +44,14 @@ def train():
 
     epochs = 10
     steps_per_epoch = train_generator.n
+    validation_steps = val_generator.n
 
     history = model.fit_generator(train_generator,
                                   steps_per_epoch=steps_per_epoch,
                                   epochs=epochs,
-                                  workers=4)
+                                  workers=4,
+                                  validation_data=val_generator,
+                                  validation_steps=validation_steps)
 
     return history
 
