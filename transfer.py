@@ -23,9 +23,10 @@ def mobilenetv2():
 
 
 def resnet50():
+    weights_path = 'input/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5'
     return tf.keras.applications.ResNet50(input_shape=IMG_SHAPE,
                                           include_top=False,
-                                          weights='imagenet')
+                                          weights=weights_path)
 
 
 def train():
