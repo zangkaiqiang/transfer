@@ -18,7 +18,7 @@ Markdown==3.1.1
 matplotlib==2.2.4
 nltk==3.4.4
 numpy==1.16.4
-opencv-python==4.1.0.25
+opencv-python==4.1.1.26
 paddlepaddle-gpu==1.5.0.post97
 pandas==0.24.2
 Pillow==6.1.0
@@ -59,7 +59,7 @@ Markdown==3.1.1
 matplotlib==2.2.4
 nltk==3.4.4
 numpy==1.16.4
-opencv-python==4.1.0.25
+opencv-python==4.1.1.26
 paddlepaddle-gpu==1.5.0.post97
 pandas==0.24.2
 Pillow==6.1.0
